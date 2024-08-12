@@ -1,68 +1,71 @@
-# Retail Sales Data Analysis
+# Housing Price Prediction
 
 ## Project Overview
 
-This project involves performing exploratory data analysis (EDA) on a retail sales dataset. The primary goal is to gain insights into the sales data, customer demographics, and product performance by applying various data processing and visualization techniques.
+This project focuses on predicting housing prices using linear regression. The dataset includes various features such as the number of bedrooms, neighborhood, and other relevant information. The main goal is to build a predictive model that can estimate the price of a house based on these features.
 
 ## Dataset
 
-The dataset used in this project is a retail sales dataset that includes various attributes such as:
--Date: The date of the transaction.
--Quantity: The number of units sold.
--Total Amount: The total sales amount for the transaction.
--Age: The age of the customer.
--Gender: The gender of the customer.
--Product Category: The category of the product sold.
+The dataset used for this project is a housing price dataset that includes the following features:
+- Neighborhood: The neighborhood where the house is located.
+- Bedrooms: The number of bedrooms in the house.
+- Price: The price of the house (target variable).
+- Other Numerical Features: Various other features that contribute to the house's price.
 
 ## Steps Performed
 
 1. Data Loading:
-   - The dataset is loaded using `pandas`.
+   - The dataset is loaded using `pandas` from a CSV file.
 
 2. Data Exploration:
    - Displayed the first few rows of the dataset using `head()`.
    - Obtained dataset information and summary statistics using `info()` and `describe()`.
 
-3. Data Cleaning:
-   - Checked for missing values and handled them by dropping rows with missing data.
-   - Removed duplicated entries from the dataset.
+3. Data Preprocessing:
+   - Checked and dropped any missing values in the dataset.
+   - Displayed unique values in categorical features like `Neighborhood` and `Bedrooms`.
+   - Removed non-numeric columns to focus on features relevant for linear regression.
+   - Stripped extra spaces from column names to ensure consistency.
+   - Dropped the `Neighborhood` column since it is categorical and not directly usable in regression.
 
-4. Statistical Analysis:
-   - Calculated the mean, median, and standard deviation for the `Quantity` column.
+4. Data Visualization:
+   - House Price Distribution: Visualized the distribution of house prices using a histogram with a Kernel Density Estimate (KDE) overlay.
+   - Correlation Matrix: Created a heatmap to visualize correlations between numerical features.
 
-5. Data Preprocessing:
-   - Converted the `Date` column to datetime format and set it as the index.
+5. Data Splitting:
+   - Split the dataset into features (`X`) and target variable (`y`).
+   - Further split the data into training (80%) and testing (20%) sets to evaluate the model's performance.
 
-6. Data Resampling:
-   - Resampled the data to a monthly frequency to analyze the sales trend.
+6. Feature Scaling:
+   - Standardized the features using `StandardScaler` to ensure that all features contribute equally to the model.
 
-7. Data Visualization:
-   - Monthly Sales Trend: Plotted the monthly sales trend over time.
-   - Customer Age Distribution: Visualized the distribution of customer ages.
-   - Customer Gender Distribution: Plotted the distribution of customer genders.
-   - Product Category Distribution: Visualized the distribution of product categories.
+7. Model Building and Training:
+   - Built a linear regression model using `LinearRegression` from scikit-learn.
+   - Trained the model using the training data.
 
-## Visualizations
+8. Model Evaluation:
+   - Predicted housing prices on both the training and testing datasets.
+   - Calculated performance metrics including Root Mean Squared Error (RMSE) and R-squared (R²) to evaluate the model's accuracy.
 
-The following visualizations were created to analyze the data:
-1. Monthly Sales Trend: A line plot showing the trend of total sales on a monthly basis.
-2. Customer Age Distribution: A histogram depicting the age distribution of customers.
-3. Customer Gender Distribution: A bar chart showing the distribution of customers by gender.
-4. Product Category Distribution: A bar chart illustrating the frequency of sales by product category.
-
-## Conclusion
-
-This analysis provides a comprehensive understanding of the retail sales data, including sales trends, customer demographics, and product performance. The insights derived from this project can help in making data-driven business decisions.
+9. Visualization:
+   - Visualized the actual vs predicted prices using a scatter plot, with a reference line to assess how close the predictions are to the actual values.
 
 ## Requirements
 
 - Python 3.x
 - Pandas
+- NumPy
+- Seaborn
 - Matplotlib
+- scikit-learn
 
 ## How to Run
 
 1. Ensure that the required libraries are installed.
 2. Download or clone the repository.
-3. Place the dataset (`retail_sales_dataset.csv`) in the appropriate directory.
-4. Run the script to perform the analysis and generate visualizations.
+3. Place the dataset (`housing_price_dataset.csv`) in the appropriate directory.
+4. Run the script to perform the analysis, build the model, and generate visualizations.
+
+## Conclusion
+
+This project demonstrates the process of building a simple linear regression model to predict housing prices. The model's performance is evaluated using RMSE and R-squared metrics, providing insights into its accuracy and effectiveness.
